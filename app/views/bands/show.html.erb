@@ -1,0 +1,9 @@
+<h1> <%= @band.name %> </h1>
+
+<%= button_to "Change Band Name", edit_band_url(@band) %>
+
+<h3> Albums: </h3>
+
+<%= render 'shared/list_of_things', things: @band.albums, parent_thing: "band", parent_thing_id: @band.id, thing_class: "album" %>
+
+<%= button_to "Back to Bands", bands_url, method: :get %>

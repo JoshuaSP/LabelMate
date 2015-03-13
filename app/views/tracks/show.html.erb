@@ -1,0 +1,12 @@
+<h1> <%= "#{@track.name} - #{@track.album.band.name}: #{@track.album.name}" %> </h1>
+<br>
+<h3> <%= "Bonus Track" if @track.bonus_track %> </h3>
+<br>
+<br>
+<h2>Lyrics:</h2>
+<br>
+<%= @track.lyrics %>
+<br>
+<%= button_to "Edit Track Details", edit_track_url(@track), method: :get %>
+<br>
+<%= button_to "Back to Tracklist", album_url(@track.album), method: :get %>

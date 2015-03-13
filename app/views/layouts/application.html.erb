@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LabelMate</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<h3> <%= link_to "Join", new_user_url %> <%= link_to "Log in", new_session_url %> </h3>
+
+<% flash.each do |name, msg| %>
+  <% msg.each do |m| %>
+    <%= content_tag :div, m , name: "name" %>
+  <% end %>
+<% end %>
+
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+
+<form class="user_form" action= <%= new_user ? user_url : session_url %> method="post">
+  <%= csrf_token %>
+  <label> Username:
+    <input type="text" name="user[username]" value="<%= @user.username %>">
+  </label>
+  <br>
+  <% if new_user %>
+    <label> Email:
+      <input type="text" name="user[email]" value="<%= @user.email %>">
+    </label>
+    <br>
+  <% end %>
+  <label> Password
+    <input type="password" name="user[password]" value="">
+  </label>
+  <br>
+  <input type="submit" value="Submit">
+</form>

@@ -1,0 +1,11 @@
+<h1> <%= @album.name %>, <%= "a live album " if @album.live_album %>by <%= @album.band.name %> </h1>
+
+<%= button_to "Edit Album Details", edit_album_url(@album), method: :get %>
+
+<h3> Tracklist: </h3>
+
+<%= render 'shared/list_of_things', things: @album.tracks, parent_thing: "album", thing_class: "track", parent_thing_id: @album.id %>
+
+<br>
+
+<%= button_to "Back to albums", band_url(@album.band), method: :get %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  references: 
+  live_album: false
+
+two:
+  name: MyString
+  references: 
+  live_album: false

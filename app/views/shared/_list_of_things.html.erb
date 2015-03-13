@@ -1,0 +1,10 @@
+<% if things %>
+  <% things.each do |thing| %>
+    <div>
+      <%= link_to thing.name, the_url(thing) %>
+      <%= button_to "Delete", the_url(thing), method: :delete, data: { confirm: "Delete this #{thing_class}?" } %>
+    </div>
+    <br>
+  <% end %>
+<% end %>
+<%= button_to "Add a #{thing_class}", Rails.application.routes.url_helpers.send("new_#{(parent_thing ? parent_thing + "_" : "") + thing_class}_path".to_sym, parent_thing_id), method: :get %>

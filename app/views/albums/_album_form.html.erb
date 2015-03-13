@@ -1,0 +1,29 @@
+<% action = album.persisted? ? album_url(album) : albums_url %>
+
+<form class="album_form" action="<%= action %>" method="post">
+  <%= csrf_token %>
+
+  <% if album.persisted? %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+  <label>Name <input type="text" name="album[name]" value="<%= album.name %>"></label>
+  <br>
+  <label for="band">Band</label>
+  <select name="album[band_id]" id="band">
+    <option>--Select A Band--</option>
+    <% Band.all.each do |band| %>
+      <option value=<%= band.id %> <%= 'selected' if band.id == album.band_id %>>
+        <%= band.name %>
+      </option>
+    <% end %>
+  </select>
+  <br>
+  <label>Live Album
+    <input type="radio" name="album[live_album]" value="true"<%= "checked" if album.live_album %>>
+  </label>
+  <label>Studio Album
+    <input type="radio" name="album[live_album]" value="false"<%= "checked" if album.live_album == false %>>
+  </label>
+  <br>
+  <input type="submit" value="submit">
+</form>
